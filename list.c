@@ -104,7 +104,7 @@ void display(List_ptr list)
     p_walk = p_walk->next;
   }
 }
-void destroy_list(List_ptr list)
+Status clear_list(List_ptr list)
 {
   Node_ptr element = NULL;
   Node_ptr p_walk = list->head;
@@ -114,5 +114,13 @@ void destroy_list(List_ptr list)
     p_walk = p_walk->next;
     free(element);
   }
+  list->head = NULL;
+  list->last = NULL;
+  list->count = 0;
+  return Success;
+}
+void destroy_list(List_ptr list)
+{
+  clear_list(list);
   free(list);
 }

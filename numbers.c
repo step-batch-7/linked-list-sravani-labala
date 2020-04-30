@@ -9,6 +9,9 @@ int main(void)
   remove_from_start(list);
   remove_from_end(list);
   display(list);
+  clear_list(list);
+  add_to_start(list, 7);
+  display(list);
   destroy_list(list);
   return 0;
 }
