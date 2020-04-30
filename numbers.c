@@ -8,5 +8,8 @@ int main(void)
   add_unique(list, 2);
   add_unique(list, 1);
   display(list);
+  remove_from_start(list);
+  display(list);
+  destroy_list(list);
   return 0;
 }

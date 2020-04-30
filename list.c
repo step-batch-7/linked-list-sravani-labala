@@ -72,6 +72,14 @@ Status add_unique(List_ptr list, int value)
   }
   return status;
 }
+Status remove_from_start(List_ptr list)
+{
+  Node_ptr p_walk = list->head;
+  list->head = p_walk->next;
+  free(p_walk);
+  list->count--;
+  return Success;
+}
 void display(List_ptr list)
 {
   Node_ptr p_walk = list->head;
