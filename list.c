@@ -80,6 +80,21 @@ Status remove_from_start(List_ptr list)
   list->count--;
   return Success;
 }
+Status remove_from_end(List_ptr list)
+{
+  Node_ptr p_walk = list->head;
+  int index = 1;
+  while (index < list->count - 1)
+  {
+    p_walk = p_walk->next;
+    index++;
+  }
+  p_walk->next = NULL;
+  free(list->last);
+  list->last = p_walk;
+  list->count--;
+  return Success;
+}
 void display(List_ptr list)
 {
   Node_ptr p_walk = list->head;

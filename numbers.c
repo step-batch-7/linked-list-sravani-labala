@@ -6,9 +6,8 @@ int main(void)
   add_to_end(list, 1);
   add_to_start(list, 3);
   add_unique(list, 2);
-  add_unique(list, 1);
-  display(list);
   remove_from_start(list);
+  remove_from_end(list);
   display(list);
   destroy_list(list);
   return 0;
