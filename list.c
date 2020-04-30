@@ -123,6 +123,15 @@ Status remove_at(List_ptr list, int position)
   free(remove);
   return Success;
 }
+Status remove_first_occurrence(List_ptr list, int value)
+{
+  int index = get_index(list, value);
+  if (index == -1)
+  {
+    return Failure;
+  }
+  return remove_at(list, index);
+}
 void display(List_ptr list)
 {
   Node_ptr p_walk = list->head;
