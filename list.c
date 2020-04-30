@@ -16,6 +16,21 @@ Node_ptr create_node(int value)
   new_node->next = NULL;
   return new_node;
 }
+int get_index(List_ptr list, int number)
+{
+  Node_ptr p_walk = list->head;
+  int index = 0;
+  while (p_walk != NULL)
+  {
+    if (p_walk->value == number)
+    {
+      return index;
+    }
+    p_walk = p_walk->next;
+    index++;
+  }
+  return -1;
+}
 Status add_to_end(List_ptr list, int value)
 {
   Node_ptr new_node = create_node(value);
@@ -46,6 +61,16 @@ Status add_to_start(List_ptr list, int value)
   list->head = new_node;
   list->count++;
   return Success;
+}
+Status add_unique(List_ptr list, int value)
+{
+  int is_unique = get_index(list, value);
+  Status status = Success;
+  if (is_unique == -1)
+  {
+    status = add_to_end(list, value);
+  }
+  return status;
 }
 void display(List_ptr list)
 {
