@@ -132,6 +132,16 @@ Status remove_first_occurrence(List_ptr list, int value)
   }
   return remove_at(list, index);
 }
+Status remove_all_occurrences(List_ptr list, int value)
+{
+  int index = get_index(list, value);
+  while (index != -1)
+  {
+    remove_at(list, index);
+    index = get_index(list, value);
+  }
+  return Success;
+}
 void display(List_ptr list)
 {
   Node_ptr p_walk = list->head;
