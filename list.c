@@ -123,6 +123,30 @@ Status remove_at(List_ptr list, int position)
   free(remove);
   return Success;
 }
+Status insert_at(List_ptr list, int value, int position)
+{
+  Node_ptr new_node = create_node(value);
+  if (new_node == NULL)
+  {
+    return Failure;
+  }
+  Node_ptr p_walk = list->head;
+  Node_ptr element = NULL;
+  int index = 0;
+  while (p_walk != NULL)
+  {
+    if (index == (position - 1))
+    {
+      element = p_walk;
+      break;
+    }
+    p_walk = p_walk->next;
+    index++;
+  }
+  new_node->next = element->next;
+  element->next = new_node;
+  return Success;
+}
 Status remove_first_occurrence(List_ptr list, int value)
 {
   int index = get_index(list, value);
