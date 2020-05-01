@@ -170,6 +170,16 @@ Status remove_all_occurrences(List_ptr list, int value)
   return status;
 }
 
+Status is_number_exist(List_ptr list, int value)
+{
+  int index = get_index(list, value);
+  if (index == -1)
+  {
+    return Failure;
+  }
+  return Success;
+}
+
 void display(List_ptr list)
 {
   Node_ptr p_walk = list->head;

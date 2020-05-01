@@ -7,6 +7,11 @@ void clear()
     ;
 }
 
+void print_message(Status status)
+{
+  printf("%s\n", status ? "Success" : "Failure");
+}
+
 void operate(List_ptr list, char choice)
 {
   int value, position;
@@ -15,50 +20,50 @@ void operate(List_ptr list, char choice)
   case 'a':
     clear();
     scanf("%d", &value);
-    printf("Status of operation is %d\n", add_to_end(list, value));
+    print_message(add_to_end(list, value));
     break;
   case 'b':
     clear();
     scanf("%d", &value);
-    printf("Status of operation is %d\n", add_to_start(list, value));
+    print_message(add_to_start(list, value));
     break;
   case 'c':
     clear();
     scanf("%d %d", &value, &position);
-    printf("Status of operation is %d\n", insert_at(list, value, position));
+    print_message(insert_at(list, value, position));
     break;
   case 'd':
     clear();
     scanf("%d", &value);
-    printf("Status of operation is %d\n", add_unique(list, value));
+    print_message(add_unique(list, value));
     break;
   case 'e':
-    printf("Status of operation is %d\n", remove_from_start(list));
+    print_message(remove_from_start(list));
   case 'f':
-    printf("Status of operation is %d\n", remove_from_end(list));
+    print_message(remove_from_end(list));
     break;
   case 'g':
     clear();
     scanf("%d", &position);
-    printf("Status of operation is %d\n", remove_at(list, position));
+    print_message(remove_at(list, position));
     break;
   case 'h':
     clear();
     scanf("%d", &value);
-    printf("Status of operation is %d\n", remove_first_occurrence(list, value));
+    print_message(remove_first_occurrence(list, value));
     break;
   case 'i':
     clear();
     scanf("%d", &value);
-    printf("Status of operation is %d\n", remove_all_occurrences(list, value));
+    print_message(remove_all_occurrences(list, value));
     break;
   case 'j':
-    printf("Status of operation is %d\n", clear_list(list));
+    print_message(clear_list(list));
     break;
   case 'k':
     clear();
     scanf("%d", &value);
-    printf("Status of operation is %d\n", get_index(list, value));
+    print_message(is_number_exist(list, value));
     break;
   case 'l':
     display(list);
