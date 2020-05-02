@@ -99,6 +99,11 @@ Please enter the alphabet of the operation you would like to perform\n");
 int main(void)
 {
   List_ptr list = create_list();
+  if (list == NULL)
+  {
+    printf("No memory in heap");
+    return 0;
+  }
   char choice;
   display_menu();
   scanf("%c", &choice);

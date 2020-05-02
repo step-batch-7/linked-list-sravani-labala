@@ -5,6 +5,10 @@
 List_ptr create_list(void)
 {
   List_ptr new_list = (List_ptr)malloc(sizeof(List));
+  if (new_list == NULL)
+  {
+    return new_list;
+  }
   new_list->head = NULL;
   new_list->last = NULL;
   new_list->count = 0;
@@ -14,6 +18,10 @@ List_ptr create_list(void)
 Node_ptr create_node(int value)
 {
   Node_ptr new_node = (Node_ptr)malloc(sizeof(Node));
+  if (new_node == NULL)
+  {
+    return new_node;
+  }
   new_node->value = value;
   new_node->next = NULL;
   return new_node;
@@ -38,14 +46,12 @@ int get_index(List_ptr list, int number)
 Status add_to_end(List_ptr list, int value)
 {
   Node_ptr new_node = create_node(value);
-  if (list->head == NULL)
+  Node_ptr *ptr_to_set = &list->head;
+  if (list->head != NULL)
   {
-    list->head = new_node;
+    ptr_to_set = &list->last->next;
   }
-  else
-  {
-    list->last->next = new_node;
-  }
+  *ptr_to_set = new_node;
   list->last = new_node;
   list->count++;
   return Success;
@@ -54,6 +60,10 @@ Status add_to_end(List_ptr list, int value)
 Status add_to_start(List_ptr list, int value)
 {
   Node_ptr new_node = create_node(value);
+  if (new_node == NULL)
+  {
+    return Failure;
+  }
   new_node->next = list->head;
   list->head = new_node;
   list->count++;
@@ -106,7 +116,7 @@ Status remove_from_end(List_ptr list)
 
 Status remove_at(List_ptr list, int position)
 {
-  if (list->count < position)
+  if (list->count < position || position < 0)
   {
     return Failure;
   };
@@ -130,11 +140,15 @@ Status remove_at(List_ptr list, int position)
 
 Status insert_at(List_ptr list, int value, int position)
 {
-  if ((list->count + 1) < position)
+  if ((list->count + 1) < position || position < 0)
   {
     return Failure;
   }
   Node_ptr new_node = create_node(value);
+  if (new_node == NULL)
+  {
+    return Failure;
+  }
   Node_ptr p_walk = list->head;
   int index = 0;
   while (index < (position - 1))
