@@ -39,6 +39,7 @@ void operate(List_ptr list, char choice)
     break;
   case 'e':
     print_message(remove_from_start(list));
+    break;
   case 'f':
     print_message(remove_from_end(list));
     break;
