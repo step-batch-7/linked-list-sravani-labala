@@ -127,11 +127,9 @@ Status remove_at(List_ptr list, int position)
     return remove_from_end(list);
   }
   Node_ptr p_walk = list->head;
-  int index = 0;
-  while (index < (position - 1))
+  while (--position)
   {
     p_walk = p_walk->next;
-    index++;
   }
   Node_ptr remove = p_walk->next;
   p_walk->next = remove->next;
@@ -160,11 +158,9 @@ Status insert_at(List_ptr list, int value, int position)
     return Failure;
   }
   Node_ptr p_walk = list->head;
-  int index = 0;
-  while (index < (position - 1))
+  while (--position)
   {
     p_walk = p_walk->next;
-    index++;
   }
   new_node->next = p_walk->next;
   p_walk->next = new_node;
