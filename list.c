@@ -144,7 +144,7 @@ Status remove_at(List_ptr list, int position)
 
 Status insert_at(List_ptr list, int value, int position)
 {
-  if ((list->count + 1) < position || position < 0)
+  if ((list->count) < position || position < 0)
   {
     return Failure;
   }
