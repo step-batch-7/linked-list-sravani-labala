@@ -116,13 +116,17 @@ Status remove_from_end(List_ptr list)
 
 Status remove_at(List_ptr list, int position)
 {
-  if (list->count < position || position < 0)
+  if ((list->count - 1) < position || position < 0)
   {
     return Failure;
   };
   if (position == 0)
   {
     return remove_from_start(list);
+  }
+  if (position == (list->count - 1))
+  {
+    return remove_from_end(list);
   }
   Node_ptr p_walk = list->head;
   int index = 0;
@@ -143,6 +147,14 @@ Status insert_at(List_ptr list, int value, int position)
   if ((list->count + 1) < position || position < 0)
   {
     return Failure;
+  }
+  if (position == 0)
+  {
+    return add_to_start(list, value);
+  }
+  if (position == (list->count))
+  {
+    return add_to_end(list, value);
   }
   Node_ptr new_node = create_node(value);
   if (new_node == NULL)
