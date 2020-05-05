@@ -44,6 +44,10 @@ int get_index(List_ptr list, int number)
 Status add_to_end(List_ptr list, int value)
 {
   Node_ptr new_node = create_node(value);
+  if (new_node == NULL)
+  {
+    return Failure;
+  }
   Node_ptr *ptr_to_set = &list->head;
   if (list->head != NULL)
   {
@@ -61,6 +65,10 @@ Status add_to_start(List_ptr list, int value)
   if (new_node == NULL)
   {
     return Failure;
+  }
+  if (list->last == NULL)
+  {
+    list->last = new_node;
   }
   new_node->next = list->head;
   list->head = new_node;
