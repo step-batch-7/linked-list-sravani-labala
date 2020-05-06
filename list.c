@@ -96,6 +96,10 @@ Status remove_from_start(List_ptr list)
   }
   list->head = p_walk->next;
   free(p_walk);
+  if (list->count == 1)
+  {
+    list->last = NULL;
+  }
   list->count--;
   return Success;
 }
@@ -116,6 +120,10 @@ Status remove_from_end(List_ptr list)
   p_walk->next = NULL;
   free(list->last);
   list->last = p_walk;
+  if (list->count == 1)
+  {
+    list->head = NULL;
+  }
   list->count--;
   return Success;
 }

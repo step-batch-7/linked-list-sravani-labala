@@ -1,0 +1,71 @@
+create_list:-
+should be able to create a new list
+should give null pointer if the dynamic memory is insufficient
+
+create_node:-
+should be able create a new node with the given value
+should give null pointer if the dynamic memory is insufficient
+
+display:-
+should not display anything if the list is empty
+should display all the values in the list
+
+clear_list:-
+should clear all the values in the list and set the list to zero
+should not do anything for the empty list
+
+destroy_list:-
+should destroy the list as well as all the nodes in it
+
+get_index:-
+should give -1 if the value doesn't exist in the list
+should give the particular index if the value exist in the list
+
+is_number_exist:-
+should give success if the number exist in the list
+should give failure if the number doesn't exist in the list
+
+add_unique:-
+should add the value to the list if it doesn't exist in the list
+should not add the value to the list if it already exists in the list
+
+add_to_end:-
+should be able to add at the end of the larger list
+should be able to add at the end for an empty list
+
+add_to_start:-
+should be able to add at the start of the larger list
+should be able to add at the start for an empty list
+
+insert_at:-
+should be able to add at the position 0 for empty list
+should be able to add at the position 0 for larger list
+should be able to add at the end of the larger list
+should be able to add at the last position of the list
+should be able to add at the middle of the list
+should not add if the position is invalid (negative position and position greater than the list)
+
+remove_from_start:-
+should be able to remove at the start of the larger list
+should be able to remove for a list containing one value
+should not do anything if the list is empty
+
+remove_from_end:-
+should be able to remove at the end of the larger list
+should be able to remove for the list containing one value
+should not do anything if the list is empty
+
+remove_first_occurrence:-
+should remove only the first occurrence of the value in the list if it exist
+should not remove anything if the value doesn't exist in the list
+
+remove_all_occurrences:-
+should remove all occurrences of the value in the list if it exist
+should not remove anything if the value doesn't exist in the list
+
+remove_at:-
+should be able to remove at the position 0 for larger list
+should be able to remove at position 0 for a list containing one value
+should be able to remove at the end of the larger list
+should be able to remove at the middle of the list
+should not remove if the position is invalid (negative position and position greater than the list)
