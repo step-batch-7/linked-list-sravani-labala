@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../list.c"
+#include "../list.h"
 
 void print_status(Status status, char *message)
 {
@@ -22,6 +22,7 @@ int compare(List_ptr list, int position, int value, int count)
 
 void test_add_to_end()
 {
+  printf("-------add_to_end------\n");
   int result;
   char *message = NULL;
   List_ptr list = create_list();
@@ -41,6 +42,7 @@ void test_add_to_end()
 
 void test_add_to_start()
 {
+  printf("-------add_to_start------\n");
   int result;
   char *message = NULL;
   List_ptr list = create_list();
@@ -60,6 +62,7 @@ void test_add_to_start()
 
 void test_add_unique()
 {
+  printf("-------add_unique------\n");
   int result;
   char *message = NULL;
   List_ptr list = create_list();
@@ -80,6 +83,7 @@ void test_add_unique()
 
 void test_clear_list()
 {
+  printf("-------clear_list------\n");
   int result;
   char *message = NULL;
   List_ptr list = create_list();
@@ -96,6 +100,7 @@ void test_clear_list()
 
 void test_insert_at()
 {
+  printf("-------insert_at------\n");
   int result;
   char *message = NULL;
   List_ptr list = create_list();
@@ -140,6 +145,7 @@ void test_insert_at()
 
 void test_remove_from_start()
 {
+  printf("-------remove_from_start------\n");
   int result;
   char *message = NULL;
   List_ptr list = create_list();
@@ -164,6 +170,7 @@ void test_remove_from_start()
 
 void test_remove_from_end()
 {
+  printf("-------remove_from_end------\n");
   int result;
   char *message = NULL;
   List_ptr list = create_list();
@@ -188,6 +195,7 @@ void test_remove_from_end()
 
 void test_remove_first_occurrence()
 {
+  printf("-------remove_first_occurrence------\n");
   int result;
   char *message = NULL;
   List_ptr list = create_list();
@@ -223,6 +231,7 @@ void test_remove_first_occurrence()
 
 void test_remove_all_occurrences()
 {
+  printf("-------remove_all_occurrences------\n");
   int result;
   char *message = NULL;
   List_ptr list = create_list();
@@ -253,6 +262,7 @@ void test_remove_all_occurrences()
 
 void test_remove_at()
 {
+  printf("-------remove_at------\n");
   int result;
   char *message = NULL;
   List_ptr list = create_list();

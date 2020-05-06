@@ -130,7 +130,7 @@ Status remove_from_end(List_ptr list)
 
 Status remove_at(List_ptr list, int position)
 {
-  if ((list->count - 1) < position || position < 0)
+  if (position > (list->count - 1) || position < 0)
   {
     return Failure;
   };
@@ -143,9 +143,11 @@ Status remove_at(List_ptr list, int position)
     return remove_from_end(list);
   }
   Node_ptr p_walk = list->head;
-  while (--position)
+  int index = 1;
+  while (index < position)
   {
     p_walk = p_walk->next;
+    index++;
   }
   Node_ptr remove = p_walk->next;
   p_walk->next = remove->next;
@@ -156,7 +158,7 @@ Status remove_at(List_ptr list, int position)
 
 Status insert_at(List_ptr list, int value, int position)
 {
-  if ((list->count) < position || position < 0)
+  if (position > list->count || position < 0)
   {
     return Failure;
   }
@@ -164,7 +166,7 @@ Status insert_at(List_ptr list, int value, int position)
   {
     return add_to_start(list, value);
   }
-  if (position == (list->count))
+  if (position == list->count)
   {
     return add_to_end(list, value);
   }
@@ -174,9 +176,11 @@ Status insert_at(List_ptr list, int value, int position)
     return Failure;
   }
   Node_ptr p_walk = list->head;
-  while (--position)
+  int index = 1;
+  while (index < position)
   {
     p_walk = p_walk->next;
+    index++;
   }
   new_node->next = p_walk->next;
   p_walk->next = new_node;
